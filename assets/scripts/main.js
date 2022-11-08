@@ -87,7 +87,7 @@ function initFormHandler() {
   // B9. TODO - Get the recipes array from localStorage, add this new recipe to it, and
   //            then save the recipes array back to localStorage
 
-  function addNewRecipe() { 
+  function addNewRecipe(event) { 
     let formData = new FormData(form); 
     let recipeObject = {};
     for(const [key, value] of formData.entries())
@@ -101,6 +101,7 @@ function initFormHandler() {
     let recipe = getRecipesFromStorage(); 
     recipe.push(recipeObject); 
     saveRecipesToStorage(recipe);
+    event.preventDefault();
   }
 
   // B10. TODO - Get a reference to the "Clear Local Storage" button
